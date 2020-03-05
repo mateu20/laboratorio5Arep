@@ -1,6 +1,7 @@
 package edu.eci.arep.laboratorio5.server;
 
 import java.net.*;
+import java.util.concurrent.ExecutorService;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 import java.io.*;
@@ -15,7 +16,8 @@ public class HttpSserver {
 	static ServerSocket serverSocket = null;
 	
 	static Socket clientSocket = null;
-	
+	private ExecutorService tP;
+	 private static final int hilos = 25;
 
 	
 	
@@ -72,8 +74,7 @@ public class HttpSserver {
 	   }
   }
   
-  public static void returnRequest(String req) throws IOException {
-	  
+  public static void returnRequest(String req) throws IOException {	  
 	  
 	  String path = "src/main/resources/";
       String n = FilenameUtils.getExtension(req);

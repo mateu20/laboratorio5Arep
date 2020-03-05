@@ -7,20 +7,20 @@ import java.net.HttpURLConnection;
 import java.net.URL;
 
 public class clienteConcurrente extends Thread {
-    private int codigo;
+    private int code;
     private String res;
-    public static int hilos = 10;
+    public static int hilos = 15;
     private URL url;
     public clienteConcurrente(URL url) {
         this.url = url;
-        codigo= 0;
+        code= 0;
     }
 
     @Override
     public void run() {
         try {
             HttpURLConnection yc = (HttpURLConnection) url.openConnection();
-            codigo = yc.getResponseCode();
+            code = yc.getResponseCode();
             BufferedReader in = new BufferedReader(new InputStreamReader(
                     yc.getInputStream()));
             String inputLine;
@@ -35,18 +35,15 @@ public class clienteConcurrente extends Thread {
             System.err.println(e);
         }
     }
+    
+    public int getResponseCode() {
+        return code;
+    }
 
 
     public String getResponse(){
         return res;
-    }
-
-
-    public int getResponseCode() {
-        return codigo;
-    }
-
-
+    } 
 
     public static void main(String[] args) throws Exception {
         URL url = new URL(args[0]);
@@ -71,7 +68,7 @@ public class clienteConcurrente extends Thread {
             }
         }
         long elapsedTime = System.nanoTime() - startTime;
-        System.out.printf("Success: %d\nFails: %d\nExecuting %d requests in %f seconds\n", success, fails, hilos, (double) elapsedTime/1000000000);
+        System.out.printf("Completado: %d\nFails: %d\nExecuting %d requests in %f seconds\n", success, fails, hilos, (double) elapsedTime/1000000000);
 
     }
 }
