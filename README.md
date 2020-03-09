@@ -70,10 +70,19 @@ Para ejecutar el programa desde la linea de comandos ejecutamos nuestro proyecto
 > mvn clean install
 
 ```
+```
+mvn  exec:java -D "edu.eci.arep.laboratorio5.client.clienteConcurrente" -Dexec.args="https://lab5arep.herokuapp.com/campus.html 10"
+```
 
 [![Heroku](https://camo.githubusercontent.com/be46aee4f8d55e322c3e7db60ea23a4deb5427c9/68747470733a2f2f6865726f6b752d62616467652e6865726f6b756170702e636f6d2f3f6170703d6865726f6b752d6261646765)](https://lab5arep.herokuapp.com/campus.html)
 
 [![CircleCI](https://circleci.com/gh/ARSW-Project-2020-think/modeler.svg?style=svg)](https://circleci.com/gh/mateu20/laboratorio5Arep)
+
+## Workshop
+El siguiente documento muestra la guia de trabajo desarrolada [Workshop](https://github.com/mateu20/laboratorio5Arep/blob/master/lab5Arep.docx)
+
+## Design Document
+El siguiente documento muestra el articulo del laboratorio [Design](https://github.com/mateu20/laboratorio5Arep/blob/master/Laboratorio5Arep.pdf)
 
 ## Authors
 
